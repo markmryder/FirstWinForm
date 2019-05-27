@@ -86,6 +86,15 @@ namespace MarkRyderAssignment1
 				txtHours.Focus();
 				throw new Exception("Hours worked is not in proper format");
 			}
+
+			if (rate < 15)
+			{
+				throw new Exception("Rate cannot be below minimum wage");
+			}
+			if (hours < 0 || hours > 168)
+			{
+				throw new Exception("Hours are not within proper range");
+			}
 		}
 
 		private void AddEmployeeToComboBox(Employee emp)
