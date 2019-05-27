@@ -8,16 +8,28 @@ namespace MarkRyderAssignment1
 {
 	class Employee
 	{
+		///<summary>The rate of pay of employee</summary>
 		private double rate;
+
+		///<summary>The number of hours worked in a week</summary>
 		private double hours;
+
+		///<summary>The full name of the employee</summary>
 		private string name;
 
+		///<summary>The current tax rate</summary>
 		private static double taxRate = 0.15;
 
+		///<summary>Total earnings for the week</summary>
 		private double grossEarnings;
+
+		///<summary>The takehome earnings after tax deducted</summary>
 		private double netEarnings;
+
+		///<summary>The total tax paid in the week</summary>
 		private double taxPaid;
 
+		///<summary>Value determines of pay has already been calculated</summary>
 		private bool isCalculated;
 
 		public double Rate { get => rate; set => rate = value; }
@@ -31,16 +43,15 @@ namespace MarkRyderAssignment1
 
 		public Employee(string name, double rate, double hours)
 		{
-			//if () { }
-			//if () { }
-			//if () { }
-
 			Rate = rate;
 			Name = name;
 			Hours = hours;
 		}
 
-
+		/// <summary>
+		/// Calculates the gross earnings, tax to be paid
+		/// and net earnings of the current employee
+		/// </summary>
 		public void CalculateEarnings()
 		{
 

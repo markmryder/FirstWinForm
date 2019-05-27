@@ -18,9 +18,14 @@ namespace MarkRyderAssignment1
 			UpdateUi();
 		}
 
+		/// <summary>Employee to be displayed on the form</summary>
 		Employee employee;
+		/// <summary>List of employees of the current session</summary>
 		List<Employee> employeeList = new List<Employee>();
 
+		/// <summary>
+		/// Takes the values inside the text boxes and calculates weekly wage
+		/// </summary>
 		private void btnCalculate_Click(object sender, EventArgs e)
 		{
 			if (employee == null)
@@ -68,20 +73,20 @@ namespace MarkRyderAssignment1
 
 		}
 
-
+		/// <summary>
+		/// Performs validation of the textboxes and throws appropriate exception message
+		/// </summary>
 		private void ParseTextBoxes()
 		{
-			double rate;
 			var sRate = txtRate.Text;
-			if (!Double.TryParse(sRate, out rate))
+			if (!Double.TryParse(sRate, out double rate))
 			{
 				txtRate.Focus();
 				throw new Exception("Hourly rate is not in proper format");
 			}
 
-			double hours;
 			var sHours = txtHours.Text;
-			if (!Double.TryParse(sHours, out hours))
+			if (!Double.TryParse(sHours, out double hours))
 			{
 				txtHours.Focus();
 				throw new Exception("Hours worked is not in proper format");
@@ -97,11 +102,19 @@ namespace MarkRyderAssignment1
 			}
 		}
 
+		/// <summary>
+		/// Adds the name of the employee object in parameter to the combobox dropdown menu
+		/// </summary>
+		/// <param name="emp">Employee object</param>
 		private void AddEmployeeToComboBox(Employee emp)
 		{
 			cmbEmployees.Items.Add(emp.Name);
 		}
 
+		/// <summary>
+		/// Checks whether an employee with that name already exists
+		/// </summary>
+		/// <param name="name">Name to be tested</param>
 		private bool IsDuplicateEmployee(string name)
 		{
 			bool isDuplicate = false;
@@ -129,6 +142,10 @@ namespace MarkRyderAssignment1
 			}
 		}
 
+		/// <summary>
+		/// Fetches an employee object that matches the given names
+		/// </summary>
+		/// <param name="name">Name of employee to be fetched</param>
 		private Employee GetEmployee(string name)
 		{
 			foreach (Employee emp in employeeList)
@@ -142,6 +159,9 @@ namespace MarkRyderAssignment1
 			return null;
 		}
 
+		/// <summary>
+		/// Fills the textboxes when user selects employee from combobox dropdown
+		/// </summary>
 		private void cmbEmployees_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			 employee = GetEmployee(cmbEmployees.SelectedItem.ToString());
@@ -152,6 +172,9 @@ namespace MarkRyderAssignment1
 
 		}
 
+		/// <summary>
+		/// Clears all textboxes in the application and makes employee object null
+		/// </summary>
 		private void btnClear_Click(object sender, EventArgs e)
 		{
 			employee = null;
@@ -165,11 +188,13 @@ namespace MarkRyderAssignment1
 
 		}
 
-		
 
-		
-		
-		//Test Commit comment
+
+
+
+		/// <summary>
+		/// Asks for confirmation before closing the application
+		/// </summary>
 		private void Form1_FormClosing_1(object sender, FormClosingEventArgs e)
 		{
 			if (e.CloseReason == CloseReason.UserClosing)
