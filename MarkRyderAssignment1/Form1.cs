@@ -16,6 +16,8 @@ namespace MarkRyderAssignment1
 		{
 			InitializeComponent();
 			UpdateUi();
+			this.StartPosition = FormStartPosition.CenterScreen;
+			this.MinimumSize = new Size(300,500);
 		}
 
 		/// <summary>Employee to be displayed on the form</summary>
@@ -65,10 +67,18 @@ namespace MarkRyderAssignment1
 			{
 				employee.CalculateEarnings();
 
+				//if (IsDuplicateEmployee(txtName.Text))
+				//{
+				//	employee
+				//}
+
 				txtGross.Text = employee.GrossEarnings.ToString();
 				txtTaxes.Text = employee.TaxPaid.ToString();
 				txtNet.Text = employee.NetEarnings.ToString();
 			}
+
+
+			//TODO - add to resources all strings entered
 
 
 		}
@@ -148,6 +158,8 @@ namespace MarkRyderAssignment1
 		/// <param name="name">Name of employee to be fetched</param>
 		private Employee GetEmployee(string name)
 		{
+			//TODO - update to index of?
+
 			foreach (Employee emp in employeeList)
 			{
 				if (emp.Name.Equals(name))

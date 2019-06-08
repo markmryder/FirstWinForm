@@ -29,12 +29,12 @@
 		private void InitializeComponent()
 		{
 			this.grpEmployeeInfo = new System.Windows.Forms.GroupBox();
-			this.lblName = new System.Windows.Forms.Label();
-			this.lblRate = new System.Windows.Forms.Label();
-			this.lblHours = new System.Windows.Forms.Label();
-			this.txtName = new System.Windows.Forms.TextBox();
-			this.txtRate = new System.Windows.Forms.TextBox();
 			this.txtHours = new System.Windows.Forms.TextBox();
+			this.txtRate = new System.Windows.Forms.TextBox();
+			this.txtName = new System.Windows.Forms.TextBox();
+			this.lblHours = new System.Windows.Forms.Label();
+			this.lblRate = new System.Windows.Forms.Label();
+			this.lblName = new System.Windows.Forms.Label();
 			this.btnCalculate = new System.Windows.Forms.Button();
 			this.btnClear = new System.Windows.Forms.Button();
 			this.grpResults = new System.Windows.Forms.GroupBox();
@@ -52,6 +52,8 @@
 			// 
 			// grpEmployeeInfo
 			// 
+			this.grpEmployeeInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.grpEmployeeInfo.Controls.Add(this.txtHours);
 			this.grpEmployeeInfo.Controls.Add(this.txtRate);
 			this.grpEmployeeInfo.Controls.Add(this.txtName);
@@ -65,23 +67,29 @@
 			this.grpEmployeeInfo.TabStop = false;
 			this.grpEmployeeInfo.Text = "Employee Information";
 			// 
-			// lblName
+			// txtHours
 			// 
-			this.lblName.AutoSize = true;
-			this.lblName.Location = new System.Drawing.Point(6, 23);
-			this.lblName.Name = "lblName";
-			this.lblName.Size = new System.Drawing.Size(38, 13);
-			this.lblName.TabIndex = 0;
-			this.lblName.Text = "Name:";
+			this.txtHours.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtHours.Location = new System.Drawing.Point(97, 82);
+			this.txtHours.Name = "txtHours";
+			this.txtHours.Size = new System.Drawing.Size(100, 20);
+			this.txtHours.TabIndex = 5;
 			// 
-			// lblRate
+			// txtRate
 			// 
-			this.lblRate.AutoSize = true;
-			this.lblRate.Location = new System.Drawing.Point(6, 53);
-			this.lblRate.Name = "lblRate";
-			this.lblRate.Size = new System.Drawing.Size(81, 13);
-			this.lblRate.TabIndex = 1;
-			this.lblRate.Text = "Hourly Rate ($):";
+			this.txtRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtRate.Location = new System.Drawing.Point(97, 50);
+			this.txtRate.Name = "txtRate";
+			this.txtRate.Size = new System.Drawing.Size(100, 20);
+			this.txtRate.TabIndex = 4;
+			// 
+			// txtName
+			// 
+			this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+			this.txtName.Location = new System.Drawing.Point(97, 20);
+			this.txtName.Name = "txtName";
+			this.txtName.Size = new System.Drawing.Size(100, 20);
+			this.txtName.TabIndex = 3;
 			// 
 			// lblHours
 			// 
@@ -92,26 +100,23 @@
 			this.lblHours.TabIndex = 2;
 			this.lblHours.Text = "Hours Worked";
 			// 
-			// txtName
+			// lblRate
 			// 
-			this.txtName.Location = new System.Drawing.Point(97, 20);
-			this.txtName.Name = "txtName";
-			this.txtName.Size = new System.Drawing.Size(100, 20);
-			this.txtName.TabIndex = 3;
+			this.lblRate.AutoSize = true;
+			this.lblRate.Location = new System.Drawing.Point(6, 53);
+			this.lblRate.Name = "lblRate";
+			this.lblRate.Size = new System.Drawing.Size(81, 13);
+			this.lblRate.TabIndex = 1;
+			this.lblRate.Text = "Hourly Rate ($):";
 			// 
-			// txtRate
+			// lblName
 			// 
-			this.txtRate.Location = new System.Drawing.Point(97, 50);
-			this.txtRate.Name = "txtRate";
-			this.txtRate.Size = new System.Drawing.Size(100, 20);
-			this.txtRate.TabIndex = 4;
-			// 
-			// txtHours
-			// 
-			this.txtHours.Location = new System.Drawing.Point(97, 82);
-			this.txtHours.Name = "txtHours";
-			this.txtHours.Size = new System.Drawing.Size(100, 20);
-			this.txtHours.TabIndex = 5;
+			this.lblName.AutoSize = true;
+			this.lblName.Location = new System.Drawing.Point(6, 23);
+			this.lblName.Name = "lblName";
+			this.lblName.Size = new System.Drawing.Size(38, 13);
+			this.lblName.TabIndex = 0;
+			this.lblName.Text = "Name:";
 			// 
 			// btnCalculate
 			// 
@@ -135,6 +140,7 @@
 			// 
 			// grpResults
 			// 
+			this.grpResults.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.grpResults.Controls.Add(this.txtNet);
 			this.grpResults.Controls.Add(this.txtTaxes);
 			this.grpResults.Controls.Add(this.txtGross);
@@ -150,6 +156,7 @@
 			// 
 			// txtNet
 			// 
+			this.txtNet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtNet.Location = new System.Drawing.Point(98, 85);
 			this.txtNet.Name = "txtNet";
 			this.txtNet.Size = new System.Drawing.Size(100, 20);
@@ -157,6 +164,7 @@
 			// 
 			// txtTaxes
 			// 
+			this.txtTaxes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtTaxes.Location = new System.Drawing.Point(98, 53);
 			this.txtTaxes.Name = "txtTaxes";
 			this.txtTaxes.Size = new System.Drawing.Size(100, 20);
@@ -164,6 +172,7 @@
 			// 
 			// txtGross
 			// 
+			this.txtGross.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtGross.Location = new System.Drawing.Point(98, 23);
 			this.txtGross.Name = "txtGross";
 			this.txtGross.Size = new System.Drawing.Size(100, 20);
@@ -198,6 +207,7 @@
 			// 
 			// lblEmployee
 			// 
+			this.lblEmployee.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.lblEmployee.AutoSize = true;
 			this.lblEmployee.Location = new System.Drawing.Point(22, 373);
 			this.lblEmployee.Name = "lblEmployee";
@@ -207,6 +217,7 @@
 			// 
 			// cmbEmployees
 			// 
+			this.cmbEmployees.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.cmbEmployees.FormattingEnabled = true;
 			this.cmbEmployees.Location = new System.Drawing.Point(110, 370);
 			this.cmbEmployees.Name = "cmbEmployees";
