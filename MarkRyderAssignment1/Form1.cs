@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -32,6 +33,7 @@ namespace MarkRyderAssignment1
 		private string err_emp_exists = Properties.Resources.ERR_EMPLOYEE_EXISTS;
 		private string err_emp_rate = Properties.Resources.ERR_RATE_FORMAT;
 		private string err_emp_hours = Properties.Resources.ERR_HOURS_FORMAT;
+		private string err_emp_name = Properties.Resources.ERR_NAME_FORMAT;
 
 		/// <summary>
 		/// Takes the values inside the text boxes and calculates weekly wage
@@ -42,28 +44,8 @@ namespace MarkRyderAssignment1
 			{
 				try
 				{
-					if (IsDuplicateEmployee(txtName.Text))
-					{
-						throw new Exception(err_emp_exists);
-					}
-
 					ParseTextBoxes();
-
-					employee = new Employee
-						(
-						txtName.Text,
-						Convert.ToDouble(txtRate.Text),
-						Convert.ToDouble(txtHours.Text)
-						);
-
-					employee.CalculateEarnings();
-
-					txtGross.Text = employee.GrossEarnings.ToString();
-					txtTaxes.Text = employee.TaxPaid.ToString();
-					txtNet.Text = employee.NetEarnings.ToString();
-
-					AddEmployeeToComboBox(employee);
-					employeeList.Add(employee);
+					CreateEmployee();
 
 				}
 				catch (Exception ex)
@@ -71,14 +53,29 @@ namespace MarkRyderAssignment1
 					MessageBox.Show(ex.Message);
 				}
 			}
+			else if (!txtName.Text.Equals(employee.Name))
+			{
+				try
+				{
+					ParseTextBoxes();
+					CreateEmployee();
+					
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message);
+				}
+
+			}
 			else
 			{
-				employee.CalculateEarnings();
+				ParseTextBoxes();
 
-				//if (IsDuplicateEmployee(txtName.Text))
-				//{
-				//	employee
-				//}
+				employee.Hours = Convert.ToDouble(txtHours.Text);
+				employee.Rate = Convert.ToDouble(txtRate.Text);
+
+				
+				employee.CalculateEarnings();
 
 				txtGross.Text = employee.GrossEarnings.ToString();
 				txtTaxes.Text = employee.TaxPaid.ToString();
@@ -87,10 +84,48 @@ namespace MarkRyderAssignment1
 		}
 
 		/// <summary>
+		/// Creates an Employee object using information from the text boxes
+		/// and adds them to the Employee list
+		/// </summary>
+		private void CreateEmployee()
+		{
+			if (IsDuplicateEmployee(txtName.Text))
+			{
+				throw new Exception(err_emp_exists);
+			}
+
+			ParseTextBoxes();
+
+			employee = new Employee
+				(
+				txtName.Text,
+				Convert.ToDouble(txtRate.Text),
+				Convert.ToDouble(txtHours.Text)
+				);
+
+			employee.CalculateEarnings();
+
+			txtGross.Text = employee.GrossEarnings.ToString();
+			txtTaxes.Text = employee.TaxPaid.ToString();
+			txtNet.Text = employee.NetEarnings.ToString();
+
+			AddEmployeeToComboBox(employee);
+			employeeList.Add(employee);
+		}
+
+
+		/// <summary>
 		/// Performs validation of the textboxes and throws appropriate exception message
 		/// </summary>
 		private void ParseTextBoxes()
 		{
+			var sName = txtName.Text;
+			if (!Regex.Match(sName,@"^[a-zA-Z]*$").Success)
+			{
+				txtName.Focus();
+				throw new Exception(err_emp_name);
+			}
+
 			var sRate = txtRate.Text;
 			if (!Double.TryParse(sRate, out double rate))
 			{
@@ -161,8 +196,6 @@ namespace MarkRyderAssignment1
 		/// <param name="name">Name of employee to be fetched</param>
 		private Employee GetEmployee(string name)
 		{
-			//TODO - update to index of?
-
 			foreach (Employee emp in employeeList)
 			{
 				if (emp.Name.Equals(name))
@@ -205,7 +238,7 @@ namespace MarkRyderAssignment1
 
 
 		/// <summary>
-		/// Asks for confirmation before closing the application
+		/// Asks for confirmation before closing the application using X at top of app
 		/// </summary>
 		private void Form1_FormClosing_1(object sender, FormClosingEventArgs e)
 		{
@@ -226,6 +259,24 @@ namespace MarkRyderAssignment1
 					e.Cancel = true;
 				}
 			}
+		}
+
+		/// <summary>
+		/// Asks for confirmation before closing the application using Close button at bottom of app
+		/// </summary>
+		private void btnClose_Click(object sender, EventArgs e)
+		{
+			var result = MessageBox.Show
+					(
+					app_close_msg,
+					app_close_cap,
+					MessageBoxButtons.YesNo
+					);
+			if (result == DialogResult.Yes)
+			{
+				Application.Exit();
+			}
+			
 		}
 	}
 }

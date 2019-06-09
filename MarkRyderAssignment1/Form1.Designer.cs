@@ -73,7 +73,7 @@
 			this.txtHours.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtHours.Location = new System.Drawing.Point(97, 82);
 			this.txtHours.Name = "txtHours";
-			this.txtHours.Size = new System.Drawing.Size(100, 20);
+			this.txtHours.Size = new System.Drawing.Size(204, 20);
 			this.txtHours.TabIndex = 5;
 			// 
 			// txtRate
@@ -81,7 +81,7 @@
 			this.txtRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtRate.Location = new System.Drawing.Point(97, 50);
 			this.txtRate.Name = "txtRate";
-			this.txtRate.Size = new System.Drawing.Size(100, 20);
+			this.txtRate.Size = new System.Drawing.Size(204, 20);
 			this.txtRate.TabIndex = 4;
 			// 
 			// txtName
@@ -89,7 +89,7 @@
 			this.txtName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtName.Location = new System.Drawing.Point(97, 20);
 			this.txtName.Name = "txtName";
-			this.txtName.Size = new System.Drawing.Size(100, 20);
+			this.txtName.Size = new System.Drawing.Size(204, 20);
 			this.txtName.TabIndex = 3;
 			// 
 			// lblHours
@@ -131,7 +131,8 @@
 			// 
 			// btnClear
 			// 
-			this.btnClear.Location = new System.Drawing.Point(135, 148);
+			this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnClear.Location = new System.Drawing.Point(245, 148);
 			this.btnClear.Name = "btnClear";
 			this.btnClear.Size = new System.Drawing.Size(75, 23);
 			this.btnClear.TabIndex = 2;
@@ -160,7 +161,7 @@
 			this.txtNet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtNet.Location = new System.Drawing.Point(98, 85);
 			this.txtNet.Name = "txtNet";
-			this.txtNet.Size = new System.Drawing.Size(100, 20);
+			this.txtNet.Size = new System.Drawing.Size(204, 20);
 			this.txtNet.TabIndex = 11;
 			// 
 			// txtTaxes
@@ -168,7 +169,7 @@
 			this.txtTaxes.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtTaxes.Location = new System.Drawing.Point(98, 53);
 			this.txtTaxes.Name = "txtTaxes";
-			this.txtTaxes.Size = new System.Drawing.Size(100, 20);
+			this.txtTaxes.Size = new System.Drawing.Size(204, 20);
 			this.txtTaxes.TabIndex = 10;
 			// 
 			// txtGross
@@ -176,7 +177,7 @@
 			this.txtGross.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
 			this.txtGross.Location = new System.Drawing.Point(98, 23);
 			this.txtGross.Name = "txtGross";
-			this.txtGross.Size = new System.Drawing.Size(100, 20);
+			this.txtGross.Size = new System.Drawing.Size(204, 20);
 			this.txtGross.TabIndex = 9;
 			// 
 			// lblNetPay
@@ -222,7 +223,7 @@
 			this.cmbEmployees.FormattingEnabled = true;
 			this.cmbEmployees.Location = new System.Drawing.Point(110, 370);
 			this.cmbEmployees.Name = "cmbEmployees";
-			this.cmbEmployees.Size = new System.Drawing.Size(121, 21);
+			this.cmbEmployees.Size = new System.Drawing.Size(204, 21);
 			this.cmbEmployees.TabIndex = 5;
 			this.cmbEmployees.SelectedIndexChanged += new System.EventHandler(this.cmbEmployees_SelectedIndexChanged);
 			// 
@@ -235,6 +236,7 @@
 			this.btnClose.TabIndex = 6;
 			this.btnClose.Text = "Close";
 			this.btnClose.UseVisualStyleBackColor = true;
+			this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
 			// 
 			// Form1
 			// 

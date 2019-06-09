@@ -97,6 +97,15 @@ namespace MarkRyderAssignment1.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Employee name is not formatted correctly.
+        /// </summary>
+        internal static string ERR_NAME_FORMAT {
+            get {
+                return ResourceManager.GetString("ERR_NAME_FORMAT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hourly rate is not in proper format.
         /// </summary>
         internal static string ERR_RATE_FORMAT {

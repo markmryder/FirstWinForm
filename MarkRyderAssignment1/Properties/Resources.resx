@@ -129,6 +129,9 @@
   <data name="ERR_HOURS_FORMAT" xml:space="preserve">
     <value>Hours worked must be a number and above 0</value>
   </data>
+  <data name="ERR_NAME_FORMAT" xml:space="preserve">
+    <value>Employee name is not formatted correctly</value>
+  </data>
   <data name="ERR_RATE_FORMAT" xml:space="preserve">
     <value>Hourly rate is not in proper format</value>
   </data>
