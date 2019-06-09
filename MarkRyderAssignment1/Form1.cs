@@ -25,6 +25,14 @@ namespace MarkRyderAssignment1
 		/// <summary>List of employees of the current session</summary>
 		List<Employee> employeeList = new List<Employee>();
 
+
+		/// <summary>List of error messages from resources</summary>
+		private string app_close_msg = Properties.Resources.APP_CLOSE_MSG;
+		private string app_close_cap = Properties.Resources.APP_CLOSE_CAPTION;
+		private string err_emp_exists = Properties.Resources.ERR_EMPLOYEE_EXISTS;
+		private string err_emp_rate = Properties.Resources.ERR_RATE_FORMAT;
+		private string err_emp_hours = Properties.Resources.ERR_HOURS_FORMAT;
+
 		/// <summary>
 		/// Takes the values inside the text boxes and calculates weekly wage
 		/// </summary>
@@ -36,7 +44,7 @@ namespace MarkRyderAssignment1
 				{
 					if (IsDuplicateEmployee(txtName.Text))
 					{
-						throw new Exception("Employee Already Exists");
+						throw new Exception(err_emp_exists);
 					}
 
 					ParseTextBoxes();
@@ -76,11 +84,6 @@ namespace MarkRyderAssignment1
 				txtTaxes.Text = employee.TaxPaid.ToString();
 				txtNet.Text = employee.NetEarnings.ToString();
 			}
-
-
-			//TODO - add to resources all strings entered
-
-
 		}
 
 		/// <summary>
@@ -92,23 +95,23 @@ namespace MarkRyderAssignment1
 			if (!Double.TryParse(sRate, out double rate))
 			{
 				txtRate.Focus();
-				throw new Exception("Hourly rate is not in proper format");
+				throw new Exception(err_emp_rate);
 			}
 
 			var sHours = txtHours.Text;
 			if (!Double.TryParse(sHours, out double hours))
 			{
 				txtHours.Focus();
-				throw new Exception("Hours worked is not in proper format");
+				throw new Exception(err_emp_hours);
 			}
 
 			if (rate < 15)
 			{
-				throw new Exception("Rate cannot be below minimum wage");
+				throw new Exception(err_emp_rate);
 			}
 			if (hours < 0 || hours > 168)
 			{
-				throw new Exception("Hours are not within proper range");
+				throw new Exception(err_emp_hours);
 			}
 		}
 
@@ -201,9 +204,6 @@ namespace MarkRyderAssignment1
 		}
 
 
-
-
-
 		/// <summary>
 		/// Asks for confirmation before closing the application
 		/// </summary>
@@ -213,8 +213,8 @@ namespace MarkRyderAssignment1
 			{
 				var result = MessageBox.Show
 					(
-					"Are you sure you want to exit?", 
-					"Confirm Close", 
+					app_close_msg, 
+					app_close_cap, 
 					MessageBoxButtons.YesNo
 					);
 				if (result == DialogResult.Yes)

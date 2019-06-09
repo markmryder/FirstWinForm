@@ -46,6 +46,7 @@
 			this.lblGross = new System.Windows.Forms.Label();
 			this.lblEmployee = new System.Windows.Forms.Label();
 			this.cmbEmployees = new System.Windows.Forms.ComboBox();
+			this.btnClose = new System.Windows.Forms.Button();
 			this.grpEmployeeInfo.SuspendLayout();
 			this.grpResults.SuspendLayout();
 			this.SuspendLayout();
@@ -225,11 +226,22 @@
 			this.cmbEmployees.TabIndex = 5;
 			this.cmbEmployees.SelectedIndexChanged += new System.EventHandler(this.cmbEmployees_SelectedIndexChanged);
 			// 
+			// btnClose
+			// 
+			this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnClose.Location = new System.Drawing.Point(245, 415);
+			this.btnClose.Name = "btnClose";
+			this.btnClose.Size = new System.Drawing.Size(75, 23);
+			this.btnClose.TabIndex = 6;
+			this.btnClose.Text = "Close";
+			this.btnClose.UseVisualStyleBackColor = true;
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(332, 450);
+			this.Controls.Add(this.btnClose);
 			this.Controls.Add(this.cmbEmployees);
 			this.Controls.Add(this.lblEmployee);
 			this.Controls.Add(this.grpResults);
@@ -268,6 +280,7 @@
 		private System.Windows.Forms.Label lblGross;
 		private System.Windows.Forms.Label lblEmployee;
 		private System.Windows.Forms.ComboBox cmbEmployees;
+		private System.Windows.Forms.Button btnClose;
 	}
 }
 
